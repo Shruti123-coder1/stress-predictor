@@ -1,7 +1,8 @@
 from flask import Flask, render_template, request
 from main import predict_stress
 
-app = Flask(__name__)
+# Tell Flask to look for templates in current folder
+app = Flask(__name__, template_folder='.')
 
 @app.route("/", methods=["GET", "POST"])
 def home():
@@ -15,5 +16,4 @@ def home():
 
 # Only use this for local testing
 if __name__ == "__main__":
-    # For local test: app.run(debug=True)
     app.run(host="0.0.0.0", port=5000, debug=True)
