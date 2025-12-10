@@ -13,5 +13,7 @@ def home():
         result = predict_stress(sleep, hr, work)
     return render_template("index.html", result=result)
 
+# Only use this for local testing
 if __name__ == "__main__":
-    app.run(debug=True)  
+    # For local test: app.run(debug=True)
+    app.run(host="0.0.0.0", port=5000, debug=True)
